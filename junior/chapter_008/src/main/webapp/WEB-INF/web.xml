@@ -23,15 +23,15 @@
             <servlet-name>UserServlet</servlet-name>
             <url-pattern>/user</url-pattern>
         </servlet-mapping>
-    
-        <servlet>
-            <servlet-name>UsersServlet</servlet-name>
-            <servlet-class>pl.aguzovsk.servlets.UsersServlet</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>UsersServlet</servlet-name>
-            <url-pattern>/list</url-pattern>
-        </servlet-mapping>
+
+    <!--<servlet>
+        <servlet-name>UsersServlet</servlet-name>
+        <servlet-class>pl.aguzovsk.servlets.UsersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsersServlet</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
     
         <servlet>
             <servlet-name>UserCreateServlet</servlet-name>
@@ -58,7 +58,7 @@
         <servlet-mapping>
             <servlet-name>DeleteUser</servlet-name>
             <url-pattern>/delete</url-pattern>
-        </servlet-mapping>
+        </servlet-mapping>-->
 </web-app>
 
 
