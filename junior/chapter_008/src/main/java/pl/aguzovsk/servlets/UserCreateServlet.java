@@ -1,5 +1,8 @@
 package pl.aguzovsk.servlets;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,31 +16,13 @@ import java.time.LocalDateTime;
  * created 22.07.18
  */
 public class UserCreateServlet extends HttpServlet {
-    ValidateService service = ValidateService.getInstance();
+    private DbStore store = DbStore.getInstance();
+    private static final Logger LOG = LoggerFactory.getLogger(UserCreateServlet.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.setContentType("text/html");
-        PrintWriter writer = new PrintWriter(resp.getOutputStream());
-        writer.append("<!DOCTYPE html>" +
-                "<html lang=\"en\">" +
-                "<head>" +
-                "    <meta charset=\"UTF-8\">" +
-                "    <title>Title</title>" +
-                "</head>" +
-                "<body>" +
-                "<form action='" + req.getContextPath() + "/create' method='post'>" +
-                "<label for='name'>Name: </label>" +
-                "<input type='text' id='name' name='name'>" +
-                "<label for='login'>Login: </lable>" +
-                "<input type='text' id='login' name='login'>" +
-                "<label for='email'>Email: </label>" +
-                "<input type='text' id='email' name='email'>" +
-                "<input type='submit'>" +
-                "</form>" +
-                "</body>" +
-                "</html>");
-        writer.flush();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html");
+        response.sendRedirect(String.format("%s%s/index.jsp", request.getContextPath(), request.getServletPath()));
     }
 
     @Override
@@ -48,10 +33,12 @@ public class UserCreateServlet extends HttpServlet {
         String email = req.getParameter("email");
         LocalDateTime time = LocalDateTime.now();
         PrintWriter writer = new PrintWriter(resp.getOutputStream());
-        if (service.add(name, login, email, time)) {
+        if (store.add(name, login, email, time)) {
             writer.append(String.format("user: name=%s, login=%s, email=%s, was added.", name, login, email));
+            LOG.info(String.format("user: name=%s, login=%s, email=%s, was added.", name, login, email));
         } else {
             writer.append("error occured, operation: add user");
+            LOG.error("error occured, operation: add user");
         }
         writer.flush();
     }

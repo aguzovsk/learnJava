@@ -12,7 +12,7 @@ public class User {
     String login;
     String email;
     LocalDateTime creationTime;
-    User(int id, String name, String login, String email, LocalDateTime ld) {
+    public User(int id, String name, String login, String email, LocalDateTime ld) {
         this.id = id;
         this.name = name;
         this.login = login;
@@ -20,14 +20,12 @@ public class User {
         this.creationTime = ld;
     }
 
-    public synchronized void updateName(String newName) {
-        this.name = newName;
-    }
-
-    public synchronized void update(String newName, String newLogin, String newEmail) {
-        this.name = newName;
-        this.login = newLogin;
-        this.email = newEmail;
+    public User() {
+        this.id = -1;
+        this.name = "Undefined";
+        this.login = "Such user do not exists.";
+        this.email = "Undefined";
+        this.creationTime = LocalDateTime.now();
     }
 
     public String getName() {
