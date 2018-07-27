@@ -4,33 +4,59 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
          http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
          version="2.4">
+    <servlet>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>pl.aguzovsk.servlets.UsersController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
-        <servlet>
-            <servlet-name>UserCreateServlet</servlet-name>
-            <servlet-class>pl.aguzovsk.servlets.UserCreateServlet</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>UserCreateServlet</servlet-name>
-            <url-pattern>/create</url-pattern>
-        </servlet-mapping>
+    <servlet>
+        <servlet-name>UserUpdateController</servlet-name>
+        <servlet-class>pl.aguzovsk.servlets.UserUpdateController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserUpdateController</servlet-name>
+        <url-pattern>/edit</url-pattern>
+    </servlet-mapping>
 
-        <servlet>
-            <servlet-name>UserUpdateServlet</servlet-name>
-            <servlet-class>pl.aguzovsk.servlets.UserUpdateServlet</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>UserUpdateServlet</servlet-name>
-            <url-pattern>/edit</url-pattern>
-        </servlet-mapping>
-    
-        <servlet>
-            <servlet-name>DeleteUser</servlet-name>
-            <servlet-class>pl.aguzovsk.servlets.DeleteUser</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>DeleteUser</servlet-name>
-            <url-pattern>/delete</url-pattern>
-        </servlet-mapping>
+    <servlet>
+        <servlet-name>UserCreateController</servlet-name>
+        <servlet-class>pl.aguzovsk.servlets.UserCreateController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserCreateController</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+
+    <!--<servlet>
+        <servlet-name>UserCreateServlet</servlet-name>
+        <servlet-class>pl.aguzovsk.servlets.UserCreateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserCreateServlet</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserUpdateServlet</servlet-name>
+        <servlet-class>pl.aguzovsk.servlets.UserUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserUpdateServlet</servlet-name>
+        <url-pattern>/edit</url-pattern>
+    </servlet-mapping> -->
+
+    <servlet>
+        <servlet-name>DeleteUser</servlet-name>
+        <servlet-class>pl.aguzovsk.servlets.DeleteUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteUser</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 
